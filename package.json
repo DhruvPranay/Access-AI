@@ -1,0 +1,41 @@
+{
+  "name": "access-ai",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ACCESS AI — The System. A gamified, AI-powered internship & placement prep platform with daily quests, penalties, an in-browser IDE and mock interviews.",
+  "keywords": ["interview-prep", "placements", "gamification", "gemini", "react", "threejs", "monaco", "pyodide"],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "predev": "node scripts/ensure-env.mjs",
+    "dev": "concurrently -k -n web,api -c cyan,magenta \"vite\" \"npm run dev:api\"",
+    "dev:web": "vite",
+    "predev:api": "node scripts/ensure-env.mjs",
+    "dev:api": "node --watch-path=server --watch-path=.env server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "verify:problems": "node scripts/verify-problems.mjs"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@react-three/postprocessing": "^3.2.2",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "framer-motion": "^14.13.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "three": "^0.187.0",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.3.0",
+    "concurrently": "^10.0.7",
+    "vite": "^8.3.8"
+  }
+}
